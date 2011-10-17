@@ -1,1 +1,4 @@
 There are some Algorithms for Numerical Analysis
+Gauss Elimination.m ---- matlab code for Gaussian Elimination pivot column
+Gauss.c		    ---- c source file for Gaussian Elimination pivot column
+Gauss.cpp	    ---- cpp source file for Gaussian Elimination pivot clumn
