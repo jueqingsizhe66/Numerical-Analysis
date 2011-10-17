@@ -1,22 +1,34 @@
-    A=[ 1 3 1; 2 8 9; 3 7 1]
-    b=[4;8;12]
-    n = 3 
-    L= zeros(n)
-    U= zeros(n)
-    U=A
-    for k =1  : n-1
-        for i = k+1 : n
-            L(i,k)=U(i,k)./U(k,k)
-        end
-        for i= k+1 : n
-            for j=k : n
-                U(i,j)=U(i,j)-L(i,k)*U(k,j)           
-            end
-        end
-        for i = k+1 : n
-            b(i)=b(i)-L(i,k)*b(k)
-        end
-        L(k,k)=1
+N = input('please input N\n')
+A=input('please input Matrix\n')
+
+for k=1 : N-1
+    if(k==N) 
+        break
     end
-    L(n,n)=1
+    Max=-1
+    Maxp=-1
+    for i=k : N
+        if(abs(A(i,k))>Max)
+            Max=abs(A(i,k))
+            Maxp=i
+        end
+    end
     
+    if(Maxp~=k)
+        TT=A(k,:)
+        A(k,:)=A(Maxp,:)
+        A(Maxp,:)=TT
+    end
+    for i=k+1 : N
+        A(i,k)=A(i,k)/A(k,k)
+    end
+    for i=k+1 : N
+        for j=k+1 : N
+            A(i,j)=A(i,j)-A(i,k)*A(k,j)
+        end
+    end
+
+end
+
+        
+          
